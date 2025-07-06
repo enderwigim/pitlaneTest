@@ -21,7 +21,8 @@
 
 /* HERO */
 .hero{
-    background-image: url("logo_noBG.png");
+    background-image: url("../background1.png");;
+    background-color: #0d2c53;
     background-size: cover;
     background-position: center;
     height: 100vh;
