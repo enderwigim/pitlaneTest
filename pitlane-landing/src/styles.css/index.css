@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Color Palette */
+@theme {
+  --color-background: #0D2C53;
+  --color-text: #C4C6C9;
+  --color-primary: #1EA6FF;
+  --color-secondary: #007BFF;
+  --color-neon: #18FF92;
+}
+/* Base styles applied with Tailwind */
+body {
+  @apply m-0 p-0 font-sans bg-background text-text;
+}
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+}
