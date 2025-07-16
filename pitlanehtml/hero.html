@@ -3,33 +3,159 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Proyecto Tailwind</title>
-  <!-- Tailwind CSS vía CDN -->
-
-  <link rel="stylesheet" href="./css/herostyle.css">
+  <title>Navbar Responsive con Menú Lateral</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1f2937',
+            accent: '#00ca73',
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .navbar-link {
+        @apply transition-all duration-300 hover:text-accent hover:scale-105;
+      }
+      .hamburger-line {
+        @apply w-6 h-0.5 bg-white block transition-all duration-300;
+      }
+      .slide-menu {
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .slide-menu.open {
+        transform: translateX(0);
+      }
+      .backdrop {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+      }
+      .backdrop.open {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans">
+<body class="bg-gray-100 min-h-screen font-poppins">
+  <!-- Navbar Responsive -->
+  <header class="sticky top-0 z-50">
+    <nav class="bg-primary shadow-lg">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center py-3">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <!-- Logo más grande -->
+        <div class="w-32 h-24 md:w-40 md:h-24 flex items-center justify-center text-xs text-gray-500 mr-4">
+          <img src="./logo_noBG.png" alt="Logo" class="w-full h-full object-contain">
+        </div>
+      </div>
+      
+      <!-- Menú Desktop (oculto en móvil) -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a href="#" class="navbar-link text-white font-poppins font-medium">Proyecto</a>
+        <span class="text-gray-400">|</span>
+        <a href="#" class="navbar-link text-white font-poppins font-medium">Inversores</a>
+        <span class="text-gray-400">|</span>
+        <a href="#" class="navbar-link text-white font-poppins font-medium">Contacto</a>
+      </div>
+      
+      <!-- Botón Hamburger (solo visible en móvil) -->
+      <div class="md:hidden flex items-center">
+        <button id="menu-toggle" class="text-white focus:outline-none">
+          <div class="space-y-1">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
 
-  <header class="">
-    <nav class="navbar flex items-center justify-between bg-gray-800 p-4">
-        <img class="h-20" src="logo_noBG.png" alt="">
-        <div class="flex items-center space-x-4">
-            <a href="#" class="navbar-link font-color">Proyecto</a>
-            <a href="#" class="navbar-link font-color">|</a>
-            <a href="#" class="navbar-link font-color">Inversores</a>
-            <a href="#" class="navbar-link font-color">|</a>
-            <a href="#" class="navbar-link font-color">Contacto</a>
-    </nav>
   </header>
-  <main class="hero flex flex-col items-center justify-center h-screen">
-    <img class="h-60" src="logo_noBG.png" alt="">
-    <h1>Inversión con visión de futuro</h1>
-  </main>
 
+  <!-- Fondo semitransparente para el menú móvil -->
+  <div id="backdrop" class="backdrop fixed inset-0 bg-black/60 z-40"></div>
+  
+  <!-- Menú Móvil Lateral Derecho -->
+  <div id="mobile-menu" class="slide-menu fixed top-0 right-0 h-full w-64 bg-primary shadow-2xl z-50">
+    <div class="flex justify-end p-4">
+      <button id="close-menu" class="text-white text-3xl hover:text-accent">&times;</button>
+    </div>
+    <div class="flex flex-col px-6 py-4 space-y-5">
+      <a href="#" class="navbar-link text-white font-poppins font-medium text-lg py-2 border-b border-gray-700">Proyecto</a>
+      <a href="#" class="navbar-link text-white font-poppins font-medium text-lg py-2 border-b border-gray-700">Inversores</a>
+      <a href="#" class="navbar-link text-white font-poppins font-medium text-lg py-2 border-b border-gray-700">Contacto</a>
+    </div>
+  </div>
 
+  <!-- Contenido de demostración -->
+  <!-- <main class="hero flex flex-col items-center justify-center h-screen bg-cover bg-center" style="background-image: url('./background1.png');">
+    <img class="h-60" src="logo_noBG.png" alt="Logo">
+    <h1 class="text-white text-3xl mt-4 font-orbitron">Inversión con visión de futuro</h1>
+  </main> -->
+
+  <!-- Contenido de demostración -->
+<main class="hero flex flex-col items-center justify-center h-screen bg-primary relative overflow-hidden">
+  <!-- Fondo azul oscuro -->
+  <div class="absolute inset-0 bg-blue-900 opacity-90"></div>
+  
+  <!-- Imagen de fondo -->
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('./background1.png'); opacity: 0.5;"></div>
+  
+  <!-- Logo y título -->
+  <div class="relative z-10">
+    <img class="h-60" src="logo_noBG.png" alt="Logo">
+    <h1 class="text-white text-3xl text-center font-orbitron">Inversión con visión de futuro</h1>
+  </div>
+</main>
+  <!-- JavaScript para el menú móvil -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenu = document.getElementById('close-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const backdrop = document.getElementById('backdrop');
+    
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      backdrop.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    }
+    
+    menuToggle.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMobileMenu);
+    backdrop.addEventListener('click', closeMobileMenu);
+    
+    // Cerrar el menú al presionar Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMobileMenu();
+      }
+    });
+  </script>
 </body>
 </html>
+
+
