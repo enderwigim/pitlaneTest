@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+
+/* Luego tu bloque @theme justo después */
+@theme {
+  --color-primary: #1f2937;
+  --color-accent:  #00ca73;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-poppins:  "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+
+
+
+
