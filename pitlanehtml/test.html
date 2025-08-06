@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circuito de Alta Competencia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#0D2C53] text-[#C4C6C9] relative overflow-x-hidden">
+
+  <!-- Fondo de circuito -->
+  <div class="absolute inset-0 bg-cover bg-center opacity-30 -z-10" style="background-image: url('./background.png');"></div>
+
+  <!-- Contenido principal -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-10">
+    
+    <!-- Título -->
+    <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-white drop-shadow-lg">
+      Una nueva era para el automovilismo y el alto rendimiento
+    </h1>
+
+    <!-- Contenedor principal -->
+    <div class="grid lg:grid-cols-2 gap-10 items-center max-w-6xl w-full">
+      
+      <!-- Imagen de circuito -->
+      <div class="rounded-lg border-2 border-cyan-500 overflow-hidden max-w-md mx-auto">
+        <img src="./circuito.png" alt="Circuito" class="w-full h-auto">
+      </div>
+
+      <!-- Datos del proyecto -->
+      <div class="space-y-4 text-left text-sm sm:text-base">
+        <div class="flex items-start gap-3">
+          <span class="text-cyan-400 text-xl">📍</span>
+          <p><strong>Ubicación:</strong> Agost, Alicante</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-cyan-400 text-xl">⏱</span>
+          <p><strong>Superficie:</strong> 2.200.000 m²</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-cyan-400 text-xl">✅</span>
+          <p><strong>Homologación:</strong> FIA Grado 1</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-cyan-400 text-xl">🏁</span>
+          <p><strong>Centro de alto rendimiento</strong></p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-cyan-400 text-xl">🏎️</span>
+          <p><strong>Zonas de:</strong> Karting, tierra y simuladores</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Características inferiores -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 text-center">
+      <div class="flex flex-col items-center">
+        <div class="text-cyan-300 text-3xl mb-2">🧬</div>
+        <p class="font-semibold">Estructura Completa</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="text-cyan-300 text-3xl mb-2">📈</div>
+        <p class="font-semibold">Modelo de<br> negocio rentable</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="text-cyan-300 text-3xl mb-2">📍</div>
+        <p class="font-semibold">Enclave Estratégico</p>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>

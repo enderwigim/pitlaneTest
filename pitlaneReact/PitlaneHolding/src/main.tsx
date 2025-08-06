@@ -3,8 +3,13 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 
+// Import Parallax provider
+import { ParallaxProvider } from 'react-scroll-parallax'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <ParallaxProvider>
+      <App />
+    </ParallaxProvider>
   </StrictMode>,
 )
