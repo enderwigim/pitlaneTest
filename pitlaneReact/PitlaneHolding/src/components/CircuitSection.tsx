@@ -9,25 +9,37 @@ import backgroundImage from '../assets/img/background2.png'
 
 function CircuitInfoSection(): React.JSX.Element {
   return (
-    <section className="relative bg-[#0D2C53] text-[#C4C6C9] overflow-hidden font-orbitron px-4 py-10 min-h-screen flex flex-col justify-center items-center text-center">
-      
+    <section className="relative text-[#C4C6C9] font-orbitron px-4 py-10 min-h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+  
+  {/* Imagen de fondo con estilo en línea */}
+  <div
+    className="absolute inset-0 z-[-20]"
+    style={{
+      backgroundImage: `url("${backgroundImage}")`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}
+  ></div>
+    {/* Capa azul translúcida encima de la imagen */}
+  <div className="absolute inset-0 bg-[#0D2C53]/90 z-[-10]"></div>  
       {/* Imagen de fondo con parallax */}
-      <Parallax speed={-20}>
+      {/* <Parallax speed={-20}>
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30 -z-0"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+          style={{ backgroundImage: `url("${backgroundImage}")` }}
         ></div>
-      </Parallax>
+      </Parallax> */}
 
       {/* Título */}
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-12 text-white drop-shadow-lg">
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-12 text-white drop-shadow-lg z-10">
         Una nueva era para el automovilismo y el alto rendimiento
       </h1>
 
       {/* Grid principal */}
-      <div className="grid lg:grid-cols-2 gap-10 items-center max-w-6xl w-full">
+      <div className="grid lg:grid-cols-2 gap-10 items-center max-w-6xl w-full z-10">
         {/* Imagen circuito */}
-        <div className="rounded-lg border-2 border-cyan-500 overflow-hidden max-w-md mx-auto shadow-xl">
+        <div className="rounded-lg border-2 border-cyan-500 overflow-hidden max-w-md mx-auto shadow-xl z-10">
           <img src={circuitImage} alt="Circuito" className="w-full h-auto" />
         </div>
 
@@ -57,7 +69,7 @@ function CircuitInfoSection(): React.JSX.Element {
       </div>
 
       {/* Características inferiores */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 text-center z-10">
         <div className="flex flex-col items-center">
           <GiProcessor className="text-cyan-300 text-4xl mb-2" />
           <p className="font-semibold">Estructura Completa</p>
