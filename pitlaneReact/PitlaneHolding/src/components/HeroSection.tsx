@@ -1,30 +1,67 @@
+import { useEffect, useState, useRef } from 'react'
 import logo from '../assets/img/logo_noBG.png'
 import backgroundImage from '../assets/img/background1.png'
-import { Parallax } from 'react-scroll-parallax'
+import Lenis from '@studio-freight/lenis'
 
 function HeroSection(): React.JSX.Element {
+  const [displayedText, setDisplayedText] = useState('')
+  const indexRef = useRef(0)
+  const timeoutRef = useRef<NodeJS.Timeout>()
+  const fullText = 'Inversión con visión de futuro'
+
+  useEffect(() => {
+    const lenis = new Lenis()
+    const raf = (time: number) => {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+    requestAnimationFrame(raf)
+    return () => lenis.destroy()
+  }, [])
+
+  useEffect(() => {
+    const typeNext = () => {
+      if (indexRef.current < fullText.length) {
+        setDisplayedText(fullText.slice(0, indexRef.current + 1))
+        indexRef.current++
+        timeoutRef.current = setTimeout(typeNext, 25)
+      }
+    }
+
+    typeNext()
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
   return (
     <main
-      className="hero flex flex-col items-center justify-center relative overflow-hidden font-orbitron"
+      className="relative overflow-hidden font-orbitron flex flex-col items-center justify-center"
       style={{ minHeight: 'calc(100vh - 7rem)' }}
     >
-      {/* Fondo azul oscuro con opacidad */}
-      <div className="absolute inset-0 bg-blue-900 opacity-90 z-0"></div>
+      {/* Fondo con imagen y parallax fijo */}
+      <div
+        className="absolute inset-0 z-[-20] bg-fixed bg-cover bg-center"
+        style={{
+          backgroundImage: `url("${backgroundImage}")`
+        }}
+      />
 
-      {/* Imagen de fondo con Parallax */}
-      <Parallax speed={-20} className="absolute inset-0 z-0">
-        <img
-          src={backgroundImage}
-          alt="Background"
-          className="w-full h-full object-cover opacity-50"
-        />
-      </Parallax>
+      {/* Capa azul con transparencia encima de la imagen */}
+      <div className="absolute inset-0 bg-[#0D2C53]/70 z-[-10]" />
 
-      {/* Contenido: logo + texto */}
+      {/* Contenido */}
       <div className="relative z-10 text-[#A9B1BA] text-center px-4">
-        <img className="h-60 mx-auto mb-4" src={logo} alt="Logo" />
-        <h1 className="text-2xl md:text-3xl lg:text-4xl">
-          Inversión con visión de futuro
+        <img
+          className="h-28 sm:h-28 md:h-36 lg:h-48 mx-auto mb-4 transition-all duration-300"
+          src={logo}
+          alt="Logo"
+        />
+        <h1 className="text-2xl md:text-4xl lg:text-5xl whitespace-pre">
+          {displayedText}
         </h1>
       </div>
     </main>
