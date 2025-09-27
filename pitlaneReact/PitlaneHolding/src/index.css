@@ -2,12 +2,37 @@
 
 
 /* Luego tu bloque @theme justo después */
+
+/* NEW THEME */
 @theme {
+  /* Colores principales */
+  --color-primary: #3db2ff;        /* azul cian */
+  --color-primary-hover: #29a1f5;  /* azul hover */
+  --color-accent: #00ca73;         /* verde acento */
+
+  /* Fondos */
+  --color-bg-dark: #0A2341;        /* azul muy oscuro */
+  --color-bg-darker: #0D2C53;      /* variante más oscura */
+  --color-bg-overlay: rgba(0, 20, 50, 0.85); /* overlay translúcido */
+
+  /* Texto */
+  --color-text: #ffffff;           /* texto principal */
+  --color-text-muted: #C4C6C9;     /* gris claro */
+  --color-text-secondary: #cce6ff; /* azul claro para labels */
+
+  /* Extras */
+  --color-shadow-cyan: rgba(0,150,255,0.3);
+
+  /* Fuentes */
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
+/* @theme {
   --color-primary: #1f2937;
   --color-accent:  #00ca73;
   --font-orbitron: "Orbitron", sans-serif;
   --font-poppins:  "Poppins", sans-serif;
-}
+} */
 
 body {
   margin: 0;
@@ -23,7 +48,7 @@ body {
 }
 
 .contact-section {
-  min-height: 60vh; /* ocupa buena parte de la pantalla */
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
