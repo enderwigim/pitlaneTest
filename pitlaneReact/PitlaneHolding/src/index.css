@@ -22,5 +22,18 @@ body {
   animation: blink 1s step-start infinite;
 }
 
+.contact-section {
+  min-height: 60vh; /* ocupa buena parte de la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0px 20px 0px;
+  box-sizing: border-box;
+
+
+    /* Fondo acompañando al formulario */
+  background: rgba(0, 20, 50, 0.85); 
+  backdrop-filter: blur(4px); /* opcional: efecto vidrio */
+}
 
 

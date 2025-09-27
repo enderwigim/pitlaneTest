@@ -9,6 +9,8 @@ import {
   FaChartLine
 } from 'react-icons/fa'
 import { GiRaceCar, GiProcessor } from 'react-icons/gi'
+import FeatureCard from "./cards/FeatureCard";
+
 
 import circuitImage from '../assets/img/circuito.png'
 import backgroundImage from '../assets/img/background2.png'
@@ -34,52 +36,58 @@ function CircuitInfoSection(): React.JSX.Element {
       </h1>
 
       {/* Grid principal */}
-      <div className="grid lg:grid-cols-2 gap-10 items-center max-w-6xl w-full z-10">
+      <div className="grid lg:grid-cols-2 gap-10 items-center sm:items-start max-w-6xl w-full z-10">
         {/* Imagen circuito */}
-        <div className="rounded-lg border-2 border-cyan-500 overflow-hidden max-w-md mx-auto shadow-xl z-10">
+        <div className="rounded-lg border-2 border-cyan-500 hover:border-[#00CA73] transition-colors duration-300 overflow-hidden max-w-md mx-auto shadow-xl z-10">
           <img src={circuitImage} alt="Circuito" className="w-full h-auto" />
         </div>
 
         {/* Detalles */}
-        <div className="space-y-5 text-left text-sm sm:text-base">
-          <div className="flex items-start gap-4">
-            <HiLocationMarker className="text-cyan-400 text-4xl" />
+        <div className="grid justify-items-center lg:justify-items-start self-center gap-5 text-center lg:text-left text-sm sm:text-base">
+          <div className="group grid grid-cols-[50px_220px] md:grid-cols-[50px_280px] lg:grid-cols-[50px_auto] items-center gap-4">
+            <HiLocationMarker className="text-cyan-400 text-4xl group-hover:text-[#00CA73] transition-colors duration-300" />
             <p><strong>Ubicación:</strong> Agost, Alicante</p>
           </div>
-          <div className="flex items-start gap-4">
-            <HiClock className="text-cyan-400 text-4xl" />
+
+          <div className="group grid grid-cols-[50px_220px] md:grid-cols-[50px_280px] lg:grid-cols-[50px_auto] items-center gap-4">
+            <HiClock className="text-cyan-400 text-4xl group-hover:text-[#00CA73] transition-colors duration-300" />
             <p><strong>Superficie:</strong> 2.200.000 m²</p>
           </div>
-          <div className="flex items-start gap-4">
-            <HiCheckCircle className="text-cyan-400 text-4xl" />
+
+          <div className="group grid grid-cols-[50px_220px] md:grid-cols-[50px_280px] lg:grid-cols-[50px_auto] items-center gap-4">
+            <HiCheckCircle className="text-cyan-400 text-4xl group-hover:text-[#00CA73] transition-colors duration-300" />
             <p><strong>Homologación:</strong> FIA Grado 1</p>
           </div>
-          <div className="flex items-start gap-4">
-            <FaFlagCheckered className="text-cyan-400 text-4xl" />
-            <p><strong>Centro de alto rendimiento</strong></p>
+
+          <div className="group grid grid-cols-[50px_220px] md:grid-cols-[50px_280px] lg:grid-cols-[50px_auto] items-center gap-4 cursor-pointer">
+            <FaFlagCheckered className="text-cyan-400 text-4xl transition-colors duration-300 group-hover:text-[#00CA73]" />
+            <p>
+              <strong>Centro de alto rendimiento</strong>
+            </p>
           </div>
-          <div className="flex items-start gap-4">
-            <GiRaceCar className="text-cyan-400 text-4xl" />
+
+
+          <div className="group grid grid-cols-[50px_220px] md:grid-cols-[50px_280px] lg:grid-cols-[50px_auto] items-center gap-4">
+            <GiRaceCar className="text-cyan-400 text-4xl group-hover:text-[#00CA73] transition-colors duration-300" />
             <p><strong>Zonas de:</strong> Karting, tierra y simuladores</p>
           </div>
         </div>
+
       </div>
-
-
     {/* Características inferiores */}
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-16 text-center z-10 w-full max-w-5xl">
-      <div className="group flex flex-col items-center p-6 rounded-xl bg-[#0A2341] shadow-md border border-cyan-500 transition-colors duration-300 hover:border-[#00CA73]">
-        <GiProcessor className="text-cyan-300 text-6xl mb-4 transition-colors duration-300 group-hover:text-[#00CA73]" />
-        <p className="font-semibold text-[#C4C6C9]">Estructura Completa</p>
-      </div>
-      <div className="group flex flex-col items-center p-6 rounded-xl bg-[#0A2341] shadow-md border border-cyan-500 transition-colors duration-300 hover:border-[#00CA73]">
-        <FaChartLine className="text-cyan-300 text-6xl mb-4 transition-colors duration-300 group-hover:text-[#00CA73]" />
-        <p className="font-semibold text-[#C4C6C9]">Modelo de<br />negocio rentable</p>
-      </div>
-      <div className="group flex flex-col items-center p-6 rounded-xl bg-[#0A2341] shadow-md border border-cyan-500 transition-colors duration-300 hover:border-[#00CA73]">
-        <FaMapMarkedAlt className="text-cyan-300 text-6xl mb-4 transition-colors duration-300 group-hover:text-[#00CA73]" />
-        <p className="font-semibold text-[#C4C6C9]">Enclave Estratégico</p>
-      </div>
+      <FeatureCard 
+        className="group flex flex-col items-center p-6 rounded-xl bg-[#0A2341] shadow-md border border-cyan-500 transition-colors duration-300 hover:border-[#00CA73]"
+        Icon={GiProcessor} 
+        text="Estructura Completa" />
+      <FeatureCard
+        className="group flex flex-col items-center p-6 rounded-xl bg-[#0A2341] shadow-md border border-cyan-500 transition-colors duration-300 hover:border-[#00CA73]" 
+        Icon={FaChartLine} 
+        text={<>Modelo de<br />negocio rentable</>} />
+      <FeatureCard 
+        className="group flex flex-col items-center p-6 rounded-xl bg-[#0A2341] shadow-md border border-cyan-500 transition-colors duration-300 hover:border-[#00CA73]"
+        Icon={FaMapMarkedAlt} 
+        text="Enclave Estratégico" />
     </div>
 
 

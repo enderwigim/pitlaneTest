@@ -35,24 +35,30 @@ function Navbar(): React.JSX.Element {
 
   return (
     <>
-      <header className="sticky top-0 z-50 font-poppins">
+      <header className="sticky top-0 z-50 font-orbitron">
         <nav className="bg-primary shadow-lg">
           <div className="mx-auto px-6">
             <div className="flex justify-between items-center py-3">
               {/* Logo */}
               <div className="flex items-center">
                 <div className="w-32 h-24 md:w-40 md:h-24 flex items-center justify-center text-xs text-gray-500 mr-4">
-                  <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+                  <img
+                    src={logo}
+                    alt="Logo"
+                    className="w-full h-full object-contain transition-transform duration-300 transform hover:scale-110"
+                  />
                 </div>
               </div>
 
               {/* Menú Desktop */}
               <div className="hidden md:flex items-center space-x-4">
-                <a href="#" className="navbar-link text-white font-poppins font-medium text-[1.3rem] no-underline">Proyecto</a>
+                <a href="#" className="navbar-link text-white font-orbitron font-medium text-[1.3rem] no-underline">Proyecto</a>
                 <span className="text-gray-400">|</span>
-                <a href="#" className="navbar-link text-white font-poppins font-medium text-[1.3rem] no-underline">Inversores</a>
+                <a href="#" className="navbar-link text-white font-orbitron font-medium text-[1.3rem] no-underline">Inversores</a>
                 <span className="text-gray-400">|</span>
-                <a href="#" className="navbar-link text-white font-poppins font-medium text-[1.3rem] no-underline">Contacto</a>
+                <a href="#" className="navbar-link text-white font-orbitron font-medium text-[1.3rem] no-underline">Contacto</a>
+                <span className="text-gray-400">|</span>
+                <a href="#download" className="navbar-link text-white font-orbitron font-medium text-[1.3rem] no-underline">Descarga el proyecto</a>
               </div>
 
               {/* Botón Hamburger */}
@@ -89,6 +95,7 @@ function Navbar(): React.JSX.Element {
           <a href="#" className="navbar-link text-white font-poppins font-medium text-lg py-2 border-b border-gray-700">Proyecto</a>
           <a href="#" className="navbar-link text-white font-poppins font-medium text-lg py-2 border-b border-gray-700">Inversores</a>
           <a href="#" className="navbar-link text-white font-poppins font-medium text-lg py-2 border-b border-gray-700">Contacto</a>
+          <a href="#" className="navbar-link text-white font-poppins font-medium text-lg py-2 border-b border-gray-700">Descarga el Proyecto</a>
         </div>
       </div>
     </>
