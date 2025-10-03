@@ -10,7 +10,7 @@ interface SectionBaseProps {
 const SectionBase: React.FC<SectionBaseProps> = ({ title, buttonText, buttonLink, onClick }) => {
   return (
     <section
-      className="w-full min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-20 bg-[rgba(0,20,50,0.85)]"
+      className="w-full min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-20]"
     >
       <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--primary-color,#3db2ff)] mb-10 tracking-wide">
         {title}

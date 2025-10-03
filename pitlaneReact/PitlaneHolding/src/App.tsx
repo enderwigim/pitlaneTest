@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import HeroSection from './components/HeroSection'
 import CircuitSection from './components/CircuitSection'
 import ContactForm from './components/forms/ContactForm'
-import SectionBase from './components/SectionBase'
+import CarAnimation from './components/animation/car_animation/CarAnimation'
 
 function App() {
   return (
@@ -15,12 +15,9 @@ function App() {
       <section id="contact" className="contact-section">
         <ContactForm />
       </section>
+        
       <section id="download" className="contact-section">
-        <SectionBase
-        title="Descarga el Plan de Proyecto Completo"
-        buttonText="Descargar Proyecto"
-        // buttonLink="/docs/plan-proyecto.pdf" // 🔗 ruta al PDF
-        />
+        <CarAnimation />
 
       </section>
 
