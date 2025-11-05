@@ -51,10 +51,10 @@ function HeroSection(): React.JSX.Element {
       />
 
       {/* Capa azul con transparencia encima de la imagen */}
-      <div className="absolute inset-0 bg-[#0D2C53]/70 z-[-10]" />
+      <div className="absolute inset-0 bg-[var(--color-primary)]/70 z-[-10]" />
 
       {/* Contenido */}
-      <div className="relative z-10 text-[#A9B1BA] text-center px-4">
+      <div className="relative z-10 text-[var(--color-text-muted)] text-center px-4">
         <img
           className="h-28 sm:h-28 md:h-36 lg:h-48 mx-auto mb-4 transition-all duration-300"
           src={logo}

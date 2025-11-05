@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
-
-/* Luego tu bloque @theme justo después */
-
-/* NEW THEME */
 @theme {
-  /* Colores principales */
-  --color-primary: #3db2ff;        /* azul cian */
-  --color-primary-hover: #29a1f5;  /* azul hover */
-  --color-accent: #00ca73;         /* verde acento */
+  /* Colors */
+  /* Primary - Dark Blue*/
+  --color-primary: #0d2c53;     /* Dark Blue */
+  --color-primary-hover: #29a1f5;  /* Blue Hover */
+  --color-primary-neon: #04D9FF; /* Neon Blue */
+  /*--color-primary: #3db2ff;        /* azul cian */
+
+  /* Secondary - Neon Green */
+  --color-secondary: #00ca73;         /* Verde Fluor */
 
   /* Fondos */
   --color-bg-dark: #0A2341;        /* azul muy oscuro */
@@ -16,9 +17,9 @@
   --color-bg-overlay: rgba(0, 20, 50, 0.85); /* overlay translúcido */
 
   /* Texto */
-  --color-text: #ffffff;           /* texto principal */
-  --color-text-muted: #C4C6C9;     /* gris claro */
-  --color-text-secondary: #cce6ff; /* azul claro para labels */
+  --color-text: #ffffff;           /* Main Text - White */
+  --color-text-muted: #C4C6C9;     /* Subtle gray */
+  --color-text-secondary: #cce6ff; /* Light Blue For labels */
 
   /* Extras */
   --color-shadow-cyan: rgba(0,150,255,0.3);
@@ -33,6 +34,8 @@
   --font-orbitron: "Orbitron", sans-serif;
   --font-poppins:  "Poppins", sans-serif;
 } */
+
+
 
 body {
   margin: 0;
