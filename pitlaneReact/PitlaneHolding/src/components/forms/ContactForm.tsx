@@ -1,6 +1,7 @@
 import React from "react";
 import FormBase from "./FormBase";
 import type { Field } from "./FormBase";
+import { sendContactForm } from "../../api/apiContact";
 
 const ContactForm: React.FC = () => {
   const fields: Field[] = [
@@ -11,11 +12,13 @@ const ContactForm: React.FC = () => {
     { name: "mensaje", label: "Mensaje", type: "textarea", placeholder: "Escribe tu mensaje aquí...", rows: 5 }
   ];
 
+
+  /*
   const handleSubmit = (data: Record<string, string>) => {
     console.log("Datos del formulario:", data);
 
     // Ejemplo de envío con fetch:
-    /*
+    
     fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -23,15 +26,15 @@ const ContactForm: React.FC = () => {
     })
     .then((res) => res.json())
     .then((result) => console.log("Respuesta del servidor:", result));
-    */
+    
   };
+  */
 
   return (
-
       <FormBase
         title="¿Te interesa invertir?"
         fields={fields}
-        onSubmit={handleSubmit}
+        onSubmit={sendContactForm}
       />
   );
 };
