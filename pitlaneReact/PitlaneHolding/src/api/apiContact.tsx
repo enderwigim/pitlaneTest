@@ -20,4 +20,3 @@ export async function sendContactForm(data: Record<string, string>): Promise<any
   }
   return await response.text();
 }
-

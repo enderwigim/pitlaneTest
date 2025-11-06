@@ -15,7 +15,7 @@ export default function SectionStage({ visible }: SectionStageProps) {
       <SectionBase
         title="Descarga el Plan de Proyecto Completo"
         buttonText="Descargar Proyecto"
-        buttonLink="/api/files/test.pdf"  // Connects to the spring boot backend
+        buttonLink="/api/files/PitlaneProject.pdf"  // Connects to the spring boot backend
       />
     </div>
   )

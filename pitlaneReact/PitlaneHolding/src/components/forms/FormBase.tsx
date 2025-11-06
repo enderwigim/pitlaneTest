@@ -39,6 +39,7 @@ const FormBase: React.FC<FormBaseProps> = ({ title, fields, onSubmit }) => {
           <div className="w-full flex flex-col text-left" key={field.name}>
             <label htmlFor={field.name} className="text-sm mb-1 text-[var(--text-secondary,#cce6ff)]">
               {field.label}
+              {field.required && <span className="text-red-500"> *</span>}
             </label>
             {field.type === "textarea" ? (
               <textarea
