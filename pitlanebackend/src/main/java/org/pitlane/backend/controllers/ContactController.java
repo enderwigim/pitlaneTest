@@ -36,7 +36,6 @@ public class ContactController {
                     new ContactResponse(ContactStatus.VALIDATIONS_REQUIRED, errors)
             );
         }
-
         ContactResponse response = contactServices.processContact(contact);
         return (response.getStatus() == ContactStatus.SUCCESS) ?
                 ResponseEntity.ok(response) :

@@ -50,8 +50,8 @@ public class ContactServices {
         helper.setSubject("Nuevo mensaje de contacto desde Pitlane Holding");
 
         // Only escape HTML in the 'message' field — others are already validated in the dto
-        String safeMessage = escapeHtml(request.getMessage());
-
+        // replace to convert line breaks
+        String safeMessage = escapeHtml(request.getMessage()).replace("\n", "<br>");
         String content = """
             <h2>Nuevo contacto recibido</h2>
             <p><strong>Nombre:</strong> %s</p>
