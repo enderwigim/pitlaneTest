@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import logo from '../assets/img/logo_noBG.png'
 import backgroundImage from '../assets/img/background1.png'
 import Lenis from '@studio-freight/lenis'
+import SectionDivider from './SectionDivider'
 
 function HeroSection(): React.JSX.Element {
   const [displayedText, setDisplayedText] = useState('')
@@ -38,6 +39,7 @@ function HeroSection(): React.JSX.Element {
   }, [])
 
   return (
+    <>
     <main
       className="relative overflow-hidden font-orbitron flex flex-col items-center justify-center"
       style={{ minHeight: 'calc(100vh - 7rem)' }}
@@ -62,9 +64,12 @@ function HeroSection(): React.JSX.Element {
         />
         <h1 className="text-2xl md:text-4xl lg:text-5xl whitespace-pre">
           {displayedText}
-        </h1>
+        </h1> 
       </div>
     </main>
+          {/* Smooth transition divider */}
+  <SectionDivider fromColor="transparent" toColor="var(--color-primary)" height="h-20 md:h-40" />
+    </>
   )
 }
 

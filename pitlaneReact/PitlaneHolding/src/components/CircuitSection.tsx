@@ -13,7 +13,7 @@ import FeatureCard from "./cards/FeatureCard";
 
 
 import circuitImage from '../assets/img/circuito.png'
-import backgroundImage from '../assets/img/background2.png'
+import backgroundImage from '../assets/img/background3.png'
 
 function CircuitInfoSection(): React.JSX.Element {
   return (
