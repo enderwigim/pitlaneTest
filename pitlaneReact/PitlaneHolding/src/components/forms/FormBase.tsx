@@ -45,6 +45,7 @@ p-10 rounded-2xl shadow-[0_0_20px_rgba(0,200,255,0.15)] border border-white/10 b
           <div className="w-full flex flex-col text-left" key={field.name}>
             <label htmlFor={field.name} className="text-sm mb-1 font-orbitron text-[var(--color-text-muted)]">
               {field.label}
+              {field.required && <span className="text-red-500"> *</span>}
             </label>
             {field.type === "textarea" ? (
               <textarea

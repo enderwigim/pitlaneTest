@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection'
 import CircuitSection from './components/CircuitSection'
 import ContactForm from './components/forms/ContactForm'
 import CarAnimation from './components/animation/car_animation/CarAnimation'
+import SectionDivider from './components/SectionDivider'
 
 function App() {
   return (
