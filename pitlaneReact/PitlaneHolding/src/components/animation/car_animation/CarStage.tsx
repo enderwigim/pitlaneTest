@@ -17,14 +17,21 @@ export default function CarStage({ startParallax, visible, carRef }: CarStagePro
     >
       <Parallax translateX={startParallax ? [-200, 500] : [0, 0]} className="z-10 relative">
         <div className="relative">
-          {startParallax && (
+          {/* {startParallax && (
             <div className="absolute -left-20 bottom-5 w-40 h-20 bg-gray-400/40 rounded-full blur-2xl animate-smokeFade" />
+          )} */}
+          {startParallax && (
+            <div className="absolute -left-20 bottom-5 w-40 h-20 bg-gray-400/40 rounded-full blur-2xl ground-shadow" />
           )}
+
           <img
             ref={carRef}
             src={car}
             alt="Racing car"
-            className="w-[70vw] md:w-[60vw] lg:w-[70vw] max-w-[90vw]"
+            style={{ willChange: "transform, filter", transform: "translateZ(0)" }}
+            // className="w-[70vw] md:w-[60vw] lg:w-[70vw] max-w-[90vw]"
+            className={`w-[70vw] md:w-[60vw] lg:w-[70vw] max-w-[90vw] 
+              ${startParallax ? "speed-blur camera-shake" : ""}`}
           />
         </div>
       </Parallax>
