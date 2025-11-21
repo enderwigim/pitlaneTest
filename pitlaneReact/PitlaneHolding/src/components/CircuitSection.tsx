@@ -79,21 +79,22 @@ function CircuitInfoSection(): React.JSX.Element {
       </div>
     {/* Características inferiores */}
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mt-16 text-center z-10 w-full max-w-5xl">
-      <FeatureCard 
-        className="group flex flex-col items-center p-6 rounded-xl bg-[var(--color-primary)] shadow-md border border-[var(--color-primary-neon)]  transition-colors duration-400 hover:border-[var(--color-secondary)]"
-        Icon={GiProcessor} 
-        text="Estructura Completa" />
       <FeatureCard
-        className="group flex flex-col items-center p-6 rounded-xl bg-[var(--color-primary)] shadow-md border border-[var(--color-primary-neon)]  transition-colors duration-400 hover:border-[var(--color-secondary)]" 
-        Icon={FaChartLine} 
-        text={<>Modelo de<br />negocio rentable</>} />
-      <FeatureCard 
-        className="group flex flex-col items-center p-6 rounded-xl bg-[var(--color-primary)] shadow-md border border-[var(--color-primary-neon)]  transition-colors duration-400 hover:border-[var(--color-secondary)]"
-        Icon={FaMapMarkedAlt} 
-        text="Enclave Estratégico" />
+        className="group flex flex-col items-center p-6 rounded-xl bg-[var(--color-primary)] shadow-md border border-[var(--color-primary-neon)] transition-colors duration-400 hover:border-[var(--color-secondary)]"
+        Icon={GiProcessor}
+        text="Estructura Completa"
+        details="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Curabitur ac lorem nec sapien volutpat."/>
+      <FeatureCard
+        className="group flex flex-col items-center p-6 rounded-xl bg-[var(--color-primary)] shadow-md border border-[var(--color-primary-neon)] transition-colors duration-400 hover:border-[var(--color-secondary)]"
+        Icon={FaChartLine}
+        text={<>Modelo de<br />negocio rentable</>}
+        details="Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."/>
+      <FeatureCard
+        className="group flex flex-col items-center p-6 rounded-xl bg-[var(--color-primary)] shadow-md border border-[var(--color-primary-neon)] transition-colors duration-400 hover:border-[var(--color-secondary)]"
+        Icon={FaMapMarkedAlt}
+        text="Enclave Estratégico"
+        details="Integer maximus neque a magna ultricies, eget malesuada lacus vehicula. Sed at tellus id magna cursus posuere."/>
     </div>
-
-
 </section>
   )
 }
