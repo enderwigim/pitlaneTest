@@ -8,6 +8,8 @@ function HeroSection(): React.JSX.Element {
   const indexRef = useRef(0)
   const timeoutRef = useRef<NodeJS.Timeout>()
   const fullText = 'Inversión con visión de futuro'
+  const [buttonsVisible, setButtonsVisible] = useState(false)
+
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -25,17 +27,19 @@ function HeroSection(): React.JSX.Element {
         setDisplayedText(fullText.slice(0, indexRef.current + 1))
         indexRef.current++
         timeoutRef.current = setTimeout(typeNext, 25)
+      } else {
+        // Finished typing → fade in buttons
+        setTimeout(() => setButtonsVisible(true), 200) 
       }
     }
 
     typeNext()
 
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
     }
   }, [])
+
 
   return (
     <>
@@ -63,7 +67,34 @@ function HeroSection(): React.JSX.Element {
         />
         <h1 className="text-2xl md:text-4xl lg:text-5xl whitespace-pre">
           {displayedText}
-        </h1> 
+        </h1>
+        
+        {/* Botones */}
+        <div
+          className={`
+            mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700
+            ${buttonsVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}
+          `}
+        >
+          <a
+            href="#sobre-nosotros"
+            className="px-6 py-3 rounded-lg border-2 border-[var(--color-primary-neon)] text-[var(--color-primary-neon)] 
+                      font-semibold shadow-lg hover:bg-[var(--color-primary-neon)] hover:text-[var(--color-primary)] 
+                      hover:scale-105 transition-all duration-300"
+          >
+            Sobre nosotros
+          </a>
+
+          <a
+            href="#contacto"
+            className="px-6 py-3 rounded-lg bg-[var(--color-primary-neon)] text-[var(--color-primary)] font-semibold 
+                      shadow-lg hover:scale-105 transition-all duration-300"
+          >
+            Contáctanos
+          </a>
+        </div>
+
+
       </div>
     </main>
     </>
