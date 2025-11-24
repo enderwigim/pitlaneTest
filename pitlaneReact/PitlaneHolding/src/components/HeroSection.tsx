@@ -18,7 +18,19 @@ function HeroSection(): React.JSX.Element {
       requestAnimationFrame(raf)
     }
     requestAnimationFrame(raf)
-    return () => lenis.destroy()
+
+      // for anchor links
+  const links = document.querySelectorAll('a[href^="#"]')
+  links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault()
+      const target = document.querySelector(link.getAttribute('href')!) as HTMLElement | null
+      if (target) lenis.scrollTo(target, {
+        offset: -120  // adjust this to match your navbar height
+      })
+    })
+  })
+  return () => lenis.destroy()
   }, [])
 
   useEffect(() => {
@@ -77,7 +89,7 @@ function HeroSection(): React.JSX.Element {
           `}
         >
           <a
-            href="#sobre-nosotros"
+            href="#about-us"
             className="px-6 py-3 rounded-lg border-2 border-[var(--color-primary-neon)] text-[var(--color-primary-neon)] 
                       font-semibold shadow-lg hover:bg-[var(--color-primary-neon)] hover:text-[var(--color-primary)] 
                       hover:scale-105 transition-all duration-300"
@@ -86,7 +98,7 @@ function HeroSection(): React.JSX.Element {
           </a>
 
           <a
-            href="#contacto"
+            href="#contact"
             className="px-6 py-3 rounded-lg bg-[var(--color-primary-neon)] text-[var(--color-primary)] font-semibold 
                       shadow-lg hover:scale-105 transition-all duration-300"
           >

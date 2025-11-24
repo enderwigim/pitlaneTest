@@ -49,6 +49,7 @@ export default function CarVideoSection({ videoSrc }: CarVideoSectionProps) {
 
   return (
   <section
+    id="download"
     ref={sectionRef}
     className="relative w-full h-[90vh] overflow-hidden transition-colors duration-1000"
     style={{

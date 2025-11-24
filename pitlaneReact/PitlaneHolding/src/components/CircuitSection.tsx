@@ -18,6 +18,7 @@ import backgroundImage from '../assets/img/background3.png'
 function CircuitInfoSection(): React.JSX.Element {
   return (
     <section
+      id="project"
       className="relative text-[var(--color-text-muted)] font-orbitron px-4 py-20 min-h-screen flex 
                   flex-col justify-center items-center text-center overflow-hidden"
       style={{ scrollSnapAlign: 'start' }}
