@@ -4,34 +4,55 @@ interface FeatureCardProps {
   Icon: React.ComponentType<{ className?: string }>;
   text: React.ReactNode;
   className?: string;
-  details?: React.ReactNode; // ⬅️ NEW
+  details?: React.ReactNode;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
   Icon,
   text,
-  className,
+  className = "",
   details
 }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <div
-      className={`${className} cursor-pointer transition-all duration-300`}
       onClick={() => setOpen(!open)}
+      className={`
+        ${className}
+        cursor-pointer transition-all duration-300
+
+        /* Border turns green when open */
+        ${open ? "border-[var(--color-secondary)]" : "border-[var(--color-primary-neon)]"}
+        hover:border-[var(--color-secondary)]
+      `}
     >
       {/* Icon */}
-      <Icon className="text-cyan-300 text-6xl mb-4 transition-transform duration-300 group-hover:text-[#00CA73]" />
+      <Icon
+        className={`
+          text-6xl mb-4 transition-all duration-300
+          ${open ? "text-[#00CA73]" : "text-cyan-300"}
+          group-hover:text-[#00CA73]
+        `}
+      />
 
       {/* Title */}
-      <p className="font-semibold text-[#C4C6C9] text-center">{text}</p>
+      <p
+        className={`
+          font-semibold text-center transition-colors duration-300
+          ${open ? "text-[#00CA73]" : "text-[#C4C6C9]"}
+          group-hover:text-[#00CA73]
+        `}
+      >
+        {text}
+      </p>
 
-      {/* Expandable Details */}
+      {/* Expandable details */}
       {details && (
         <div
           className={`
-            overflow-hidden transition-all duration-500 ease-in-out 
-            text-[#C4C6C9] text-sm mt-4
+            overflow-hidden transition-all duration-500 ease-in-out text-sm mt-4
+            text-[var(--color-text-muted)]
             ${open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
           `}
         >
