@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import backgroundImage from '../assets/img/background4.png'
+import backgroundImage from '../assets/img/background3.png'
 
 function AboutSection(): React.JSX.Element {
   const [visible, setVisible] = useState(false)
