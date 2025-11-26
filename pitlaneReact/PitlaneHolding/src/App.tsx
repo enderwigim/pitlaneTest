@@ -7,6 +7,7 @@ import ContactForm from './components/forms/ContactForm'
 import CarAnimation from './components/animation/car_animation/CarAnimation'
 import CarVideoSection from "./components/CarVideoSection";
 import carVideo from "./assets/video/car_intro.mp4";
+import AboutSection from './components/AboutSection'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <HeroSection />
       <CircuitSection />
+      <AboutSection />
       <section id="contact" className="contact-section">
         <ContactForm />
       </section>
