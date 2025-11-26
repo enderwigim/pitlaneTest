@@ -54,6 +54,8 @@ function Navbar(): React.JSX.Element {
               <div className="hidden md:flex items-center space-x-4">
                 <a href="#project" className="navbar-link text-[var(--color-text-muted)]  font-orbitron font-medium text-[1.3rem] no-underline">Proyecto</a>
                 <span className="text-gray-400">|</span>
+                <a href="#about-us" className="navbar-link text-[var(--color-text-muted)]  font-orbitron font-medium text-[1.3rem] no-underline">Sobre nosotros</a>
+                <span className="text-gray-400">|</span>
                 <a href="#investors" className="navbar-link text-[var(--color-text-muted)]  font-orbitron font-medium text-[1.3rem] no-underline">Inversores</a>
                 <span className="text-gray-400">|</span>
                 <a href="#contact" className="navbar-link text-[var(--color-text-muted)]  font-orbitron font-medium text-[1.3rem] no-underline">Contacto</a>
