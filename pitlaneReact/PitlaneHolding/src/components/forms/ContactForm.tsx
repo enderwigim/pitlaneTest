@@ -38,32 +38,34 @@ const ContactForm: React.FC = () => {
       }
     }
   }
-
+  
   return (
-    <div>
-      <FormBase
-        title="¿Te interesa invertir?"
-        fields={fields}
-        onSubmit={handleSubmit}
-      />
+    <div className="w-full flex flex-col items-center justify-center">
+      <div className="w-full max-w-xl">
+        <FormBase
+          title="¿Te interesa invertir?"
+          fields={fields}
+          onSubmit={handleSubmit}
+        />
 
-      {feedback && (
-        <p className="mt-4 text-center text-sm text-[var(--text-secondary,#cce6ff)]">
-          {feedback}
-        </p>
-      )}
+        {feedback && (
+          <p className="mt-4 text-center text-sm text-[var(--text-secondary,#cce6ff)]">
+            {feedback}
+          </p>
+        )}
 
-      {Object.keys(errorFields).length > 0 && (
-        <ul className="mt-2 text-red-400 text-sm text-left max-w-xl mx-auto">
-          {Object.entries(errorFields).map(([field, msg]) => (
-            <li key={field}>
-              {msg}
-            </li>
-          ))}
-        </ul>
-      )}
+        {Object.keys(errorFields).length > 0 && (
+          <ul className="mt-2 text-red-400 text-sm text-left">
+            {Object.entries(errorFields).map(([field, msg]) => (
+              <li key={field}>
+                {msg}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
-  );
+  )
 };
 
 export default ContactForm;

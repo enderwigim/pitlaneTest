@@ -17,13 +17,7 @@ function App() {
       <CircuitSection />
       <AboutSection />
       <ContactSection />
-      <CarVideoSection videoSrc={carVideo} />  
-      <section id="download" className="contact-section">
-        <CarAnimation />
-
-      </section>
-
-
+      <CarVideoSection videoSrc={carVideo} />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import ContactForm from "./forms/ContactForm";
-import backgroundImage from "../assets/img/background2.png"; // replace with the image you prefer
+import backgroundImage from "../assets/img/background2.png";
 
 function ContactSection(): React.JSX.Element {
   const [visible, setVisible] = useState(false);
@@ -23,7 +23,7 @@ function ContactSection(): React.JSX.Element {
       ref={sectionRef}
       id="contact"
       className="relative overflow-hidden font-orbitron flex items-center justify-center px-6"
-      style={{ minHeight: "calc(100vh - 7rem)" }} // 👈 full screen minus navbar
+      style={{ minHeight: "calc(100vh - 7rem)" }}
     >
       {/* Background */}
       <div
@@ -36,17 +36,13 @@ function ContactSection(): React.JSX.Element {
 
       {/* Content */}
       <div
-        className={`w-full max-w-3xl mx-auto transition-all duration-700 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
+        className={`
+          w-full max-w-3xl mx-auto transition-all duration-700
+          flex flex-col items-center justify-center     /* center vertically + horizontally */
+          ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+        `}
       >
-        <h2 className="text-center text-4xl md:text-5xl font-bold tracking-wide mb-10 text-[var(--color-text-muted)] drop-shadow-[0_0_8px_var(--color-primary-neon)]">
-          Contáctanos
-        </h2>
-
-        <div className="bg-[var(--color-primary)]/60 rounded-xl shadow-xl p-6 md:p-10 backdrop-blur-sm">
-          <ContactForm />
-        </div>
+        <ContactForm />
       </div>
     </section>
   );

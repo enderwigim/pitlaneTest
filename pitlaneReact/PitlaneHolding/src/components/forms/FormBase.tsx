@@ -30,59 +30,68 @@ const FormBase: React.FC<FormBaseProps> = ({ title, fields, onSubmit }) => {
   };
 
   return (
-<div className="w-[90%] max-w-xl bg-gradient-to-b from-[var(--color-bg-darker)] to-[var(--color-primary)] 
-p-10 rounded-2xl shadow-[0_0_20px_rgba(0,200,255,0.15)] border border-white/10 backdrop-blur-sm text-center">
-  <h2 className="text-3xl md:text-4xl font-orbitron text-[var(--color-primary-neon)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-    ¿Te interesa invertir?
-  </h2>
-  <p className="text-sm text-[var(--color-text-muted)] mt-2 mb-6 tracking-wide">
-    Completa el formulario y un miembro del equipo te contactará.
-  </p>
+    <div className="w-full flex justify-center">   {/* 👈 Center block */}
+      <div className="w-[90%] max-w-xl mx-auto bg-gradient-to-b from-[var(--color-bg-darker)] to-[var(--color-primary)] 
+                      p-10 rounded-2xl shadow-[0_0_20px_rgba(0,200,255,0.15)] border border-white/10 
+                      backdrop-blur-sm text-center">
+        
+        <h2 className="text-3xl md:text-4xl font-orbitron text-[var(--color-primary-neon)] drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
+          ¿Te interesa invertir?
+        </h2>
+        
+        <p className="text-sm text-[var(--color-text-muted)] mt-2 mb-6 tracking-wide">
+          Completa el formulario y un miembro del equipo te contactará.
+        </p>
 
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 items-center">
+          {fields.map((field) => (
+            <div className="w-full flex flex-col text-left" key={field.name}>
+              <label htmlFor={field.name} className="text-sm mb-1 font-orbitron text-[var(--color-text-muted)]">
+                {field.label}
+                {field.required && <span className="text-red-500"> *</span>}
+              </label>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5 items-center">
-        {fields.map((field) => (
-          <div className="w-full flex flex-col text-left" key={field.name}>
-            <label htmlFor={field.name} className="text-sm mb-1 font-orbitron text-[var(--color-text-muted)]">
-              {field.label}
-              {field.required && <span className="text-red-500"> *</span>}
-            </label>
-            {field.type === "textarea" ? (
-              <textarea
-                id={field.name}
-                name={field.name}
-                rows={field.rows || 4}
-                placeholder={field.placeholder}
-                value={formData[field.name] || ""}
-                onChange={handleChange}
-                required={field.required}
-                className="w-full p-3 rounded-md bg-white/10 text-[var(--color-text-muted)] text-sm outline-none transition-all 
-                           placeholder-[var(--color-text-muted)] font-orbitron focus:border focus:border-[var(--color-primary-hover)] focus:bg-white/15 focus:shadow-lg"
-              />
-            ) : (
-              <input
-                type={field.type}
-                id={field.name}
-                name={field.name}
-                placeholder={field.placeholder}
-                value={formData[field.name] || ""}
-                onChange={handleChange}
-                required={field.required}
-                className="w-full p-3 rounded-md bg-white/10 text-[var(--color-text-muted)] text-sm font-orbitron 
-             placeholder-[var(--color-text-muted)] outline-none transition-all border border-white/10 
-             focus:border-[var(--color-accent)] focus:bg-white/15 focus:shadow-[0_0_10px_rgba(0,200,255,0.2)]"
-              />
-            )}
-          </div>
-        ))}
-        <button
-          type="submit"
-          className="w-full py-3 rounded-md bg-[var(--primary-color,#3db2ff)] text-[var(--color-text-muted)] font-semibold text-lg tracking-wide 
-                     transition-transform transform hover:scale-[1.02] hover:bg-[var(--color-primary-hover)] hover:shadow-lg"
-        >
-          Enviar
-        </button>
-      </form>
+              {field.type === "textarea" ? (
+                <textarea
+                  id={field.name}
+                  name={field.name}
+                  rows={field.rows || 4}
+                  placeholder={field.placeholder}
+                  value={formData[field.name] || ""}
+                  onChange={handleChange}
+                  required={field.required}
+                  className="w-full p-3 rounded-md bg-white/10 text-[var(--color-text-muted)] text-sm outline-none 
+                             transition-all placeholder-[var(--color-text-muted)] font-orbitron 
+                             focus:border focus:border-[var(--color-primary-hover)] focus:bg-white/15 focus:shadow-lg"
+                />
+              ) : (
+                <input
+                  type={field.type}
+                  id={field.name}
+                  name={field.name}
+                  placeholder={field.placeholder}
+                  value={formData[field.name] || ""}
+                  onChange={handleChange}
+                  required={field.required}
+                  className="w-full p-3 rounded-md bg-white/10 text-[var(--color-text-muted)] text-sm font-orbitron 
+                             placeholder-[var(--color-text-muted)] outline-none transition-all border border-white/10 
+                             focus:border-[var(--color-accent)] focus:bg-white/15 
+                             focus:shadow-[0_0_10px_rgba(0,200,255,0.2)]"
+                />
+              )}
+            </div>
+          ))}
+
+          <button
+            type="submit"
+            className="w-full py-3 rounded-md bg-[var(--primary-color,#3db2ff)] text-[var(--color-text-muted)] font-semibold text-lg 
+                       tracking-wide transition-transform transform hover:scale-[1.02] 
+                       hover:bg-[var(--color-primary-hover)] hover:shadow-lg"
+          >
+            Enviar
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
