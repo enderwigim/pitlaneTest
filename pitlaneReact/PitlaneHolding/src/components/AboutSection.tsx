@@ -53,13 +53,11 @@ function AboutSection(): React.JSX.Element {
         <p className="text-md md:text-lg text-[var(--color-text-muted)] px-4 mb-6">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In
           laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in,
-          venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit. Ut non
-          mollis metus. Quisque at orci tincidunt, placerat quam in, rutrum quam. Maecenas ac laoreet augue. Suspendisse potenti.
+          venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.
           <br /><br />
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In
           laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in,
-          venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit. Ut non
-          mollis metus. Quisque at orci tincidunt, placerat quam in, rutrum quam. Maecenas ac laoreet augue. Suspendisse potenti.
+          venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.
 
         </p>
 
@@ -67,8 +65,7 @@ function AboutSection(): React.JSX.Element {
         <p className="text-sm md:text-md text-[var(--color-text-muted)] px-4 mb-10">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In
           laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in,
-          venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit. Ut non
-          mollis metus. Quisque at orci tincidunt, placerat quam in, rutrum quam. Maecenas ac laoreet augue. Suspendisse potenti.
+          venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.
         </p>
 
 
