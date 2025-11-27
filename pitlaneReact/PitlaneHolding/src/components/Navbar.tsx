@@ -56,8 +56,6 @@ function Navbar(): React.JSX.Element {
                 <span className="text-gray-400">|</span>
                 <a href="#about-us" className="navbar-link text-[var(--color-text-muted)]  font-orbitron font-medium text-[1.3rem] no-underline">Sobre nosotros</a>
                 <span className="text-gray-400">|</span>
-                <a href="#investors" className="navbar-link text-[var(--color-text-muted)]  font-orbitron font-medium text-[1.3rem] no-underline">Inversores</a>
-                <span className="text-gray-400">|</span>
                 <a href="#contact" className="navbar-link text-[var(--color-text-muted)]  font-orbitron font-medium text-[1.3rem] no-underline">Contacto</a>
                 <span className="text-gray-400">|</span>
                 <a href="#download" className="navbar-link text-[var(--color-text-muted)]  font-orbitron font-medium text-[1.3rem] no-underline">Descarga el proyecto</a>
@@ -95,7 +93,7 @@ function Navbar(): React.JSX.Element {
         </div>
         <div className="flex flex-col px-6 py-4 space-y-5">
           <a href="#project" className="navbar-link text-[var(--color-text-muted)] font-poppins font-medium text-lg py-2 border-b border-gray-700">Proyecto</a>
-          <a href="#investors" className="navbar-link text-[var(--color-text-muted)]  font-poppins font-medium text-lg py-2 border-b border-gray-700">Inversores</a>
+          <a href="#investors" className="navbar-link text-[var(--color-text-muted)]  font-poppins font-medium text-lg py-2 border-b border-gray-700">Sobre nosotros</a>
           <a href="#contact" className="navbar-link text-[var(--color-text-muted)]  font-poppins font-medium text-lg py-2 border-b border-gray-700">Contacto</a>
           <a href="#download" className="navbar-link text-[var(--color-text-muted)]  font-poppins font-medium text-lg py-2 border-b border-gray-700">Descarga el Proyecto</a>
         </div>
