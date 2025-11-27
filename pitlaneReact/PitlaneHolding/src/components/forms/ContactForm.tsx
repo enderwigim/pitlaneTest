@@ -2,70 +2,96 @@ import React, { useState } from "react";
 import FormBase from "./FormBase";
 import type { Field } from "./FormBase";
 import { sendContactForm } from "../../api/apiContact";
+import Modal from "./Modal";
 
 const ContactForm: React.FC = () => {
-  const [feedback, setFeedback] = useState<string | null>(null);
-  const [errorFields, setErrorFields] = useState<Record<string, string>>({});
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<"success" | "error" | "warning">("success");
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalErrors, setModalErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
   const fields: Field[] = [
-    { name: "name", label: "Nombre Completo", type: "text", placeholder: "Ingresa tu nombre completo", required: true },
-    { name: "email", label: "Correo Electrónico", type: "email", placeholder: "ejemplo@correo.com", required: true },
-    { name: "number", label: "Teléfono", type: "tel", placeholder: "+34 600 000 000" },
-    { name: "company", label: "Empresa / Fondo de inversión", type: "text", placeholder: "Nombre de la empresa o fondo" },
-    { name: "message", label: "Mensaje", type: "textarea", placeholder: "Escribe tu mensaje aquí...", rows: 5 }
+    { name: "name", label: "Nombre Completo", type: "text", required: true },
+    { name: "email", label: "Correo Electrónico", type: "email", required: true },
+    { name: "number", label: "Teléfono", type: "tel" },
+    { name: "company", label: "Empresa / Fondo de inversión", type: "text" },
+    { name: "message", label: "Mensaje", type: "textarea", rows: 5 }
   ];
 
-  async function handleSubmit(data: Record<string, string>) {
-    setFeedback(null);
-    setErrorFields({});
-    let result = null;
-    try {
-      result = await sendContactForm(data);
 
-      if (result.status === "SUCCESS") {
-        setFeedback("✅ ¡Formulario enviado correctamente!");
-      } else {
-        setFeedback("❌ Ha ocurrido un problema: " + (result.message || "Error desconocido"));
-      }
-    } catch (err: any) {
-      if (result && result.message) {
-        setFeedback("❌ No se pudo enviar el formulario." + (result.message || "Error desconocido"));
-      } else if (err.errors) {
-        setErrorFields(err.errors);
-        setFeedback("⚠️ Por favor corrige los errores del formulario.");
-      } else {
-        setFeedback("❌ Error al enviar el formulario. Inténtalo de nuevo más tarde.");
-      }
+
+async function handleSubmit(data: Record<string, string>) {
+  if (isSubmitting || isSent) return; // blocks double submit + sending again
+
+  setIsSubmitting(true);
+
+  try {
+    const result = await sendContactForm(data);
+
+    if (result.status === "SUCCESS") {
+      setIsSent(true);          // 🔥 NOW it becomes "sent"
+      setIsSubmitting(false);   // 🔥 stops showing "Sending..."
+      setModalType("success");
+      setModalTitle("¡Formulario enviado!");
+      setModalMessage("Tu mensaje ha sido enviado correctamente.");
+      setModalOpen(true);
+      return;
     }
+
+    // ❌ backend responded but not success
+    setIsSubmitting(false);
+    setModalType("error");
+    setModalTitle("Error");
+    setModalMessage(result.message || "No se pudo enviar.");
+    setModalOpen(true);
+
+  } catch (err: any) {
+    setIsSubmitting(false);      // 🔥 restore sending state
+
+    if (err.errors) {
+      setModalErrors(err.errors);
+      setModalType("warning");
+      setModalTitle("Corrige los campos");
+      setModalMessage("Hay errores en el formulario.");
+    } else {
+      setModalType("error");
+      setModalTitle("Error inesperado");
+      setModalMessage("No se pudo enviar el formulario.");
+    }
+
+    setModalOpen(true);
   }
-  
+}
+
+
   return (
-    <div className="w-full flex flex-col items-center justify-center">
-      <div className="w-full max-w-xl">
-        <FormBase
-          title="¿Te interesa invertir?"
-          fields={fields}
-          onSubmit={handleSubmit}
-        />
-
-        {feedback && (
-          <p className="mt-4 text-center text-sm text-[var(--text-secondary,#cce6ff)]">
-            {feedback}
-          </p>
-        )}
-
-        {Object.keys(errorFields).length > 0 && (
-          <ul className="mt-2 text-red-400 text-sm text-left">
-            {Object.entries(errorFields).map(([field, msg]) => (
-              <li key={field}>
-                {msg}
-              </li>
-            ))}
-          </ul>
-        )}
+    <>
+      <div className="w-full flex flex-col items-center justify-center">
+        <div className="w-full max-w-xl">
+          <FormBase
+            title="¿Te interesa invertir?"
+            fields={fields}
+            onSubmit={handleSubmit}
+            disabled={isSubmitting || isSent}  
+            isSubmitting={isSubmitting}
+            isSent={isSent}                 
+          />
+        </div>
       </div>
-    </div>
-  )
+
+      <Modal
+        open={modalOpen}
+        title={modalTitle}
+        message={modalMessage}
+        errors={modalErrors}
+        type={modalType}
+        onClose={() => setModalOpen(false)}
+      />
+    </>
+  );
 };
 
 export default ContactForm;
