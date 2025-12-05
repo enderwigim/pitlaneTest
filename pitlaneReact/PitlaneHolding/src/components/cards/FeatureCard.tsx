@@ -53,7 +53,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           className={`
             overflow-hidden transition-all duration-500 ease-in-out text-sm mt-4
             text-[var(--color-text-muted)]
-            ${open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}
+            max-h-40  /* Always reserve space */
+            ${open ? "opacity-100" : "opacity-0 pointer-events-none"}
           `}
         >
           <p className="leading-relaxed px-2">{details}</p>
