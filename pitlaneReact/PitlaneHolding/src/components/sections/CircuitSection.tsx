@@ -9,11 +9,11 @@ import {
   FaChartLine
 } from 'react-icons/fa'
 import { GiRaceCar, GiProcessor } from 'react-icons/gi'
-import FeatureCard from "./cards/FeatureCard";
+import FeatureCard from "../cards/FeatureCard";
 
 
-import circuitImage from '../assets/img/circuito.png'
-import backgroundImage from '../assets/img/background2.png'
+import circuitImage from '../../assets/img/circuito.png'
+import backgroundImage from '../../assets/img/background2.png'
 
 function CircuitInfoSection(): React.JSX.Element {
   return (

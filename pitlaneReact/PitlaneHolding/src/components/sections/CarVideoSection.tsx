@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import SectionStage from "./animation/car_animation/SectionStage";
+import SectionStage from "../animation/car_animation/SectionStage";
 
 interface CarVideoSectionProps {
   videoSrc: string;

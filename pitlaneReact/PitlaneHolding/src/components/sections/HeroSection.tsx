@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
-import logo from '../assets/img/logo_noBG.png'
-import backgroundImage from '../assets/img/background1.png'
+import logo from '../../assets/img/logo_noBG.png'
+import backgroundImage from '../../assets/img/background1.png'
 import Lenis from '@studio-freight/lenis'
 
 function HeroSection(): React.JSX.Element {
