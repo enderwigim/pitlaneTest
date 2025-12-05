@@ -1,14 +1,15 @@
 import { useEffect, useState, useRef } from 'react'
-import logo from '../assets/img/logo_noBG.png'
-import backgroundImage from '../assets/img/background1.png'
+import logo from '../../assets/img/logo_noBG.png'
+import backgroundImage from '../../assets/img/background1.png'
 import Lenis from '@studio-freight/lenis'
-import SectionDivider from './SectionDivider'
 
 function HeroSection(): React.JSX.Element {
   const [displayedText, setDisplayedText] = useState('')
   const indexRef = useRef(0)
   const timeoutRef = useRef<NodeJS.Timeout>()
   const fullText = 'Inversión con visión de futuro'
+  const [buttonsVisible, setButtonsVisible] = useState(false)
+
 
   useEffect(() => {
     const lenis = new Lenis()
@@ -17,7 +18,19 @@ function HeroSection(): React.JSX.Element {
       requestAnimationFrame(raf)
     }
     requestAnimationFrame(raf)
-    return () => lenis.destroy()
+
+      // for anchor links
+  const links = document.querySelectorAll('a[href^="#"]')
+  links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault()
+      const target = document.querySelector(link.getAttribute('href')!) as HTMLElement | null
+      if (target) lenis.scrollTo(target, {
+        offset: -120  // adjust this to match your navbar height
+      })
+    })
+  })
+  return () => lenis.destroy()
   }, [])
 
   useEffect(() => {
@@ -26,17 +39,19 @@ function HeroSection(): React.JSX.Element {
         setDisplayedText(fullText.slice(0, indexRef.current + 1))
         indexRef.current++
         timeoutRef.current = setTimeout(typeNext, 25)
+      } else {
+        // Finished typing → fade in buttons
+        setTimeout(() => setButtonsVisible(true), 200) 
       }
     }
 
     typeNext()
 
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
     }
   }, [])
+
 
   return (
     <>
@@ -64,11 +79,36 @@ function HeroSection(): React.JSX.Element {
         />
         <h1 className="text-2xl md:text-4xl lg:text-5xl whitespace-pre">
           {displayedText}
-        </h1> 
+        </h1>
+        
+        {/* Botones */}
+        <div
+          className={`
+            mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700
+            ${buttonsVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}
+          `}
+        >
+          <a
+            href="#about-us"
+            className="px-6 py-3 rounded-lg border-2 border-[var(--color-primary-neon)] text-[var(--color-primary-neon)] 
+                      font-semibold shadow-lg hover:bg-[var(--color-primary-neon)] hover:text-[var(--color-primary)] 
+                      hover:scale-105 transition-all duration-300"
+          >
+            Sobre nosotros
+          </a>
+
+          <a
+            href="#contact"
+            className="px-6 py-3 rounded-lg bg-[var(--color-primary-neon)] text-[var(--color-primary)] font-semibold 
+                      shadow-lg hover:scale-105 transition-all duration-300"
+          >
+            Contáctanos
+          </a>
+        </div>
+
+
       </div>
     </main>
-          {/* Smooth transition divider */}
-  <SectionDivider fromColor="transparent" toColor="var(--color-primary)" height="h-20 md:h-40" />
     </>
   )
 }

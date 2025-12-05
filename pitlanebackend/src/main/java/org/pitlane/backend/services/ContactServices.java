@@ -29,6 +29,7 @@ public class ContactServices {
     public ContactResponse processContact(ContactRequest request) {
         try {
             sendContactEmail(request);
+            sendConfirmationEmail(request);
         }
         catch (MessagingException e) {
             e.printStackTrace();
@@ -52,22 +53,101 @@ public class ContactServices {
         // Only escape HTML in the 'message' field — others are already validated in the dto
         // replace to convert line breaks
         String safeMessage = escapeHtml(request.getMessage()).replace("\n", "<br>");
+        String bannerUrl = "http://localhost:8080/images/email-banner.png";
         String content = """
-            <h2>Nuevo contacto recibido</h2>
-            <p><strong>Nombre:</strong> %s</p>
-            <p><strong>Email:</strong> %s</p>
-            <p><strong>Teléfono:</strong> %s</p>
-            <p><strong>Empresa:</strong> %s</p>
-            <p><strong>Mensaje:</strong><br>%s</p>
-            """.formatted(
+    <div style="font-family: Arial, sans-serif; background-color: #f5f7fa; padding: 20px;">
+      
+      <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+
+        <!-- Header Image -->
+        <img src=\\"%s\\" alt=\\"Pitlane Holding\\" style="width: 100%%; display: block;">
+
+        <!-- Title -->
+        <div style="padding: 25px; text-align: center; border-bottom: 1px solid #e6e6e6;">
+          <h2 style="margin: 0; font-size: 22px; color: #0b0b0c;">Nuevo mensaje de contacto</h2>
+          <p style="margin: 8px 0 0; color: #555;">Has recibido un nuevo formulario desde la web de Pitlane Holding.</p>
+        </div>
+
+        <!-- Body -->
+        <div style="padding: 25px; font-size: 15px; color: #333;">
+          
+          <p><strong>Nombre:</strong> %s</p>
+          <p><strong>Email:</strong> %s</p>
+          <p><strong>Teléfono:</strong> %s</p>
+          <p><strong>Empresa / Fondo:</strong> %s</p>
+
+          <p style="margin-top: 20px;"><strong>Mensaje:</strong></p>
+          <div style="background: #f0f2f5; padding: 12px; border-radius: 6px; color: #444; line-height: 1.5;">
+            %s
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div style="padding: 20px; text-align: center; font-size: 12px; color: #777; background: #fafbfc; border-top: 1px solid #e6e6e6;">
+          © Pitlane Holding — Este mensaje fue generado automáticamente.
+        </div>
+
+      </div>
+    </div>
+    """.formatted(
+                bannerUrl,
                 request.getName(),
                 request.getEmail(),
                 request.getNumber(),
                 request.getCompany(),
-                safeMessage);
+                safeMessage
+        );
         helper.setText(content, true); // true = HTML content
         mailSender.send(message);
     }
+
+    private void sendConfirmationEmail(ContactRequest request) throws MessagingException {
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+
+        helper.setFrom(fromAddress);
+        helper.setTo(request.getEmail());
+        helper.setSubject("Gracias por contactar con Pitlane Holding");
+
+        String bannerUrl = "http://localhost:8080/images/email-banner.png";
+
+        String content = """
+    <div style="font-family: Arial, sans-serif; background-color: #f5f7fa; padding: 20px;">
+      
+      <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+
+        <!-- Header Image -->
+        <img src="%s" alt="Pitlane Holding" style="width: 100%%; display: block;">
+
+        <div style="padding: 25px; text-align: center; border-bottom: 1px solid #e6e6e6;">
+          <h2 style="margin: 0; font-size: 22px; color: #0b0b0c;">¡Gracias por tu mensaje!</h2>
+          <p style="margin: 8px 0 0; color: #555;">
+            Hemos recibido tu formulario de contacto. Nuestro equipo te responderá lo antes posible.
+          </p>
+        </div>
+
+        <div style="padding: 25px; font-size: 15px; color: #333;">
+          <p>Hola <strong>%s</strong>,</p>
+          <p>Gracias por ponerte en contacto con <strong>Pitlane Holding</strong>. Este es un mensaje automático para confirmarte que hemos recibido tu solicitud.</p>
+          <p>Nos pondremos en contacto contigo en breve.</p>
+        </div>
+
+        <div style="padding: 20px; text-align: center; font-size: 12px; color: #777; background: #fafbfc; border-top: 1px solid #e6e6e6;">
+          © Pitlane Holding — Este mensaje fue generado automáticamente.
+        </div>
+
+      </div>
+    </div>
+    """.formatted(
+                bannerUrl,
+                request.getName()
+        );
+
+        helper.setText(content, true);
+        mailSender.send(message);
+    }
+
 
     private String escapeHtml(String text) {
         if (text == null) return "";

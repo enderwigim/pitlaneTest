@@ -1,12 +1,14 @@
 import './App.css'
 import './index.css'
 import Navbar from './components/Navbar'
-import HeroSection from './components/HeroSection'
-import CircuitSection from './components/CircuitSection'
-import ContactForm from './components/forms/ContactForm'
+import HeroSection from './components/sections/HeroSection'
+import CircuitSection from './components/sections/CircuitSection'
+import ContactSection from './components/sections/ContactSection'
 import CarAnimation from './components/animation/car_animation/CarAnimation'
-import CarVideoSection from "./components/CarVideoSection";
+import CarVideoSection from "./components/sections/CarVideoSection";
 import carVideo from "./assets/video/car_intro.mp4";
+import AboutSection from './components/sections/AboutSection'
+import ProjectDetailsSection from './components/sections/ProjectDetailsSection'
 
 function App() {
   return (
@@ -14,16 +16,10 @@ function App() {
       <Navbar />
       <HeroSection />
       <CircuitSection />
-      <section id="contact" className="contact-section">
-        <ContactForm />
-      </section>
-      <CarVideoSection videoSrc={carVideo} />  
-      <section id="download" className="contact-section">
-        <CarAnimation />
-
-      </section>
-
-
+      <ProjectDetailsSection />
+      <AboutSection />
+      <ContactSection />
+      <CarVideoSection videoSrc={carVideo} />
     </>
   )
 }
