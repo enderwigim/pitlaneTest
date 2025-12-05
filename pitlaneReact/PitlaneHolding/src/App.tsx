@@ -8,6 +8,7 @@ import CarAnimation from './components/animation/car_animation/CarAnimation'
 import CarVideoSection from "./components/sections/CarVideoSection";
 import carVideo from "./assets/video/car_intro.mp4";
 import AboutSection from './components/sections/AboutSection'
+import ProjectDetailsSection from './components/sections/ProjectDetailsSection'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <HeroSection />
       <CircuitSection />
+      <ProjectDetailsSection />
       <AboutSection />
       <ContactSection />
       <CarVideoSection videoSrc={carVideo} />
