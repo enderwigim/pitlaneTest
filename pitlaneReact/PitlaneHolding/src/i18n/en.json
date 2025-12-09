@@ -1,0 +1,14 @@
+{
+
+    "navbar": {
+        "project": "Project",
+        "about": "About us",
+        "contact": "Contact",
+        "download": "Download project"
+    },
+  "hero": {
+        "slogan": "Investment with a vision for the future",
+        "about": "About us",
+        "contact": "Contact us"
+    }
+}

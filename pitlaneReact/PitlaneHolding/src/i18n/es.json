@@ -1,0 +1,13 @@
+{
+    "navbar": {
+        "project": "Proyecto",
+        "about": "Sobre nosotros",
+        "contact": "Contacto",
+        "download": "Descarga el proyecto"
+    },
+    "hero": {
+        "slogan": "Inversión con visión de futuro",
+        "about": "Sobre nosotros",
+        "contact": "Contáctanos"
+  }
+}
