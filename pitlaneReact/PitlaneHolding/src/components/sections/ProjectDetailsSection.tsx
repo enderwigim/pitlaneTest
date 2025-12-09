@@ -1,7 +1,10 @@
-import { useEffect, useState, useRef } from 'react'
-import backgroundImage from '../../assets/img/background4.png'
+import { useEffect, useState, useRef } from "react"
+import { useTranslation } from "react-i18next"
+import backgroundImage from "../../assets/img/background4.png"
 
 function ProjectDetailsSection(): React.JSX.Element {
+  const { t } = useTranslation()
+
   const [visible, setVisible] = useState(false)
   const [buttonsVisible, setButtonsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement | null>(null)
@@ -23,6 +26,8 @@ function ProjectDetailsSection(): React.JSX.Element {
     return () => clearTimeout(timer)
   }, [visible])
 
+  const visionList: string[] = t("projectDetails.visionList", { returnObjects: true }) as string[]
+
   return (
     <section
       ref={sectionRef}
@@ -43,21 +48,16 @@ function ProjectDetailsSection(): React.JSX.Element {
         className={`
           max-w-5xl mx-auto text-center text-[var(--color-text-muted)]
           transition-all duration-700 
-          ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+          ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         `}
       >
         {/* MAIN INTRO BLOCK */}
         <p className="text-md md:text-lg px-4 mb-8 leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id tempus tortor. 
-          Fusce aliquet dictum eros id malesuada. Mauris at consequat ipsum. Donec consequat 
-          risus ac est viverra convallis. Proin iaculis sed lorem in luctus. Praesent vitae 
-          sem sed libero scelerisque laoreet sit amet a mauris.
+          {t("projectDetails.intro1")}
         </p>
 
         <p className="text-sm md:text-md px-4 mb-12 leading-relaxed">
-          Donec blandit dignissim lacus, sed dapibus libero fringilla in. Sed at tempor sem. 
-          Mauris auctor euismod sapien, feugiat gravida lectus porta sed. Nulla vitae leo 
-          fringilla, semper mauris id, suscipit elit.
+          {t("projectDetails.intro2")}
         </p>
 
         {/* SECTION DIVIDER */}
@@ -67,17 +67,15 @@ function ProjectDetailsSection(): React.JSX.Element {
         <div
           className={`
             transition-all duration-700 delay-200
-            ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
           `}
         >
           <h2 className="text-xl md:text-2xl text-cyan-300 mb-6 font-semibold">
-            Key Features of the Project
+            {t("projectDetails.featuresTitle")}
           </h2>
 
           <p className="text-sm md:text-md px-4 mb-10 leading-relaxed">
-            Suspendisse potenti. Nunc ultricies mauris id augue condimentum, ac vehicula ex rutrum.
-            Integer convallis aliquam velit, id congue neque dignissim ac. Fusce nec justo vitae
-            lacus tempus auctor a id nisi.
+            {t("projectDetails.featuresDesc")}
           </p>
         </div>
 
@@ -88,18 +86,15 @@ function ProjectDetailsSection(): React.JSX.Element {
         <div
           className={`
             transition-all duration-700 delay-300
-            ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
           `}
         >
           <h2 className="text-xl md:text-2xl text-cyan-300 mb-6 font-semibold">
-            How the System Works
+            {t("projectDetails.architectureTitle")}
           </h2>
 
           <p className="text-sm md:text-md px-4 mb-10 leading-relaxed">
-            Sed euismod lectus vitae urna congue, id feugiat leo ullamcorper. Donec luctus
-            tincidunt metus nec consequat. Morbi vitae dui vehicula, ultricies purus et,
-            tempor tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae.
+            {t("projectDetails.architectureDesc")}
           </p>
         </div>
 
@@ -110,24 +105,17 @@ function ProjectDetailsSection(): React.JSX.Element {
         <div
           className={`
             transition-all duration-700 delay-500
-            ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
           `}
         >
           <h2 className="text-xl md:text-2xl text-cyan-300 mb-6 font-semibold">
-            Vision & Goals
+            {t("projectDetails.visionTitle")}
           </h2>
 
           <ul className="text-sm md:text-md px-8 text-left mx-auto max-w-3xl space-y-4 leading-relaxed">
-            <li>• Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae.</li>
-            <li>• Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae.</li>
-            <li>• Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae.</li>
-            <li>• Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae.</li>
-            <li>• Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae.</li>
+            {visionList.map((item, i) => (
+              <li key={i}>• {item}</li>
+            ))}
           </ul>
         </div>
 
