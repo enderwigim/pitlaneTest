@@ -9,5 +9,33 @@
         "slogan": "Inversión con visión de futuro",
         "about": "Sobre nosotros",
         "contact": "Contáctanos"
+    },
+    "circuit": {
+        "title": "Una nueva era para el automovilismo y el alto rendimiento",
+
+        "locationLabel": "Ubicación:",
+        "locationValue": "Agost, Alicante",
+
+        "surfaceLabel": "Superficie:",
+        "surfaceValue": "2.200.000 m²",
+
+        "homologationLabel": "Homologación:",
+        "homologationValue": "FIA Grado 1",
+
+        "performanceCenter": "Centro de alto rendimiento",
+
+        "zonesLabel": "Zonas de:",
+        "zonesValue": "Karting, tierra y simuladores",
+
+        "features": {
+            "structure": "Estructura Completa",
+            "structureDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Curabitur ac lorem nec sapien volutpat.",
+
+            "business": "Modelo de negocio rentable",
+            "businessDesc": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+
+            "location": "Enclave Estratégico",
+            "locationDesc": "Integer maximus neque a magna ultricies, eget malesuada lacus vehicula. Sed at tellus id magna cursus posuere."
+        }
   }
 }
