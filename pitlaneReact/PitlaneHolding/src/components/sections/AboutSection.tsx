@@ -1,7 +1,10 @@
-import { useEffect, useState, useRef } from 'react'
-import backgroundImage from '../../assets/img/background3.png'
+import { useEffect, useState, useRef } from "react"
+import { useTranslation } from "react-i18next"
+import backgroundImage from "../../assets/img/background3.png"
 
 function AboutSection(): React.JSX.Element {
+  const { t } = useTranslation()
+
   const [visible, setVisible] = useState(false)
   const [buttonsVisible, setButtonsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement | null>(null)
@@ -22,8 +25,8 @@ function AboutSection(): React.JSX.Element {
 
   useEffect(() => {
     if (!visible) return
-    const t = setTimeout(() => setButtonsVisible(true), 200)
-    return () => clearTimeout(t)
+    const tmr = setTimeout(() => setButtonsVisible(true), 200)
+    return () => clearTimeout(tmr)
   }, [visible])
 
   return (
@@ -31,7 +34,7 @@ function AboutSection(): React.JSX.Element {
       ref={sectionRef}
       id="about-us"
       className="relative overflow-hidden font-orbitron flex items-center justify-center px-6"
-      style={{ minHeight: 'calc(100vh - 7rem)' }}
+      style={{ minHeight: "calc(100vh - 7rem)" }}
     >
       {/* Background */}
       <div
@@ -39,41 +42,31 @@ function AboutSection(): React.JSX.Element {
         style={{ backgroundImage: `url("${backgroundImage}")` }}
       />
 
-      {/* Dark overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-[var(--color-primary)]/80 z-[-10]" />
 
       {/* Content */}
       <div
         className={`
           max-w-5xl mx-auto text-center text-[var(--color-text-muted)] transition-all duration-700
-          ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+          ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         `}
       >
         {/* Paragraph 1 */}
-        <p className="text-md md:text-lg text-[var(--color-text-muted)] px-4 mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In
-          laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in,
-          venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.
-          <br /><br />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In
-          laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in,
-          venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.
-
+        <p className="text-md md:text-lg text-[var(--color-text-muted)] px-4 mb-6 whitespace-pre-line">
+          {t("about.paragraph1")}
         </p>
 
         {/* Paragraph 2 */}
-        <p className="text-sm md:text-md text-[var(--color-text-muted)] px-4 mb-10">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In
-          laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in,
-          venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.
+        <p className="text-sm md:text-md text-[var(--color-text-muted)] px-4 mb-10 whitespace-pre-line">
+          {t("about.paragraph2")}
         </p>
-
 
         {/* Buttons */}
         <div
           className={`
             mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center transition-all duration-700
-            ${buttonsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+            ${buttonsVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}
           `}
         >
           <a
@@ -83,7 +76,7 @@ function AboutSection(): React.JSX.Element {
                       hover:bg-[var(--color-primary-neon)] hover:text-[var(--color-primary)]
                       hover:scale-105 transition-all duration-300 inline-block"
           >
-            Contactanos
+            {t("about.contact")}
           </a>
 
           <a
@@ -93,7 +86,7 @@ function AboutSection(): React.JSX.Element {
                       hover:bg-[var(--color-primary-neon)] hover:text-[var(--color-primary)]
                       hover:scale-105 transition-all duration-300 inline-block"
           >
-            Descargar Proyecto
+            {t("about.download")}
           </a>
         </div>
       </div>

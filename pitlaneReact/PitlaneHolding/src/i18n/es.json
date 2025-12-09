@@ -38,23 +38,30 @@
             "locationDesc": "Integer maximus neque a magna ultricies, eget malesuada lacus vehicula. Sed at tellus id magna cursus posuere."
         }
   },
-  "projectDetails": {
-    "intro1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id tempus tortor. Fusce aliquet dictum eros id malesuada. Mauris at consequat ipsum. Donec consequat risus ac est viverra convallis. Proin iaculis sed lorem in luctus. Praesent vitae sem sed libero scelerisque laoreet sit amet a mauris.",
-    "intro2": "Donec blandit dignissim lacus, sed dapibus libero fringilla in. Sed at tempor sem. Mauris auctor euismod sapien, feugiat gravida lectus porta sed. Nulla vitae leo fringilla, semper mauris id, suscipit elit.",
+    "projectDetails": {
+        "intro1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id tempus tortor. Fusce aliquet dictum eros id malesuada. Mauris at consequat ipsum. Donec consequat risus ac est viverra convallis. Proin iaculis sed lorem in luctus. Praesent vitae sem sed libero scelerisque laoreet sit amet a mauris.",
+        "intro2": "Donec blandit dignissim lacus, sed dapibus libero fringilla in. Sed at tempor sem. Mauris auctor euismod sapien, feugiat gravida lectus porta sed. Nulla vitae leo fringilla, semper mauris id, suscipit elit.",
 
-    "featuresTitle": "Características clave del proyecto",
-    "featuresDesc": "Suspendisse potenti. Nunc ultricies mauris id augue condimentum, ac vehicula ex rutrum. Integer convallis aliquam velit, id congue neque dignissim ac. Fusce nec justo vitae lacus tempus auctor a id nisi.",
+        "featuresTitle": "Características clave del proyecto",
+        "featuresDesc": "Suspendisse potenti. Nunc ultricies mauris id augue condimentum, ac vehicula ex rutrum. Integer convallis aliquam velit, id congue neque dignissim ac. Fusce nec justo vitae lacus tempus auctor a id nisi.",
 
-    "architectureTitle": "Cómo funciona el sistema",
-    "architectureDesc": "Sed euismod lectus vitae urna congue, id feugiat leo ullamcorper. Donec luctus tincidunt metus nec consequat. Morbi vitae dui vehicula, ultricies purus et, tempor tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+        "architectureTitle": "Cómo funciona el sistema",
+        "architectureDesc": "Sed euismod lectus vitae urna congue, id feugiat leo ullamcorper. Donec luctus tincidunt metus nec consequat. Morbi vitae dui vehicula, ultricies purus et, tempor tortor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
 
-    "visionTitle": "Visión y objetivos",
-    "visionList": [
-        "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
-        "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
-        "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
-        "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
-        "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."]
+        "visionTitle": "Visión y objetivos",
+        "visionList": [
+            "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+            "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+            "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+            "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+            "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
+        ]
+    },
+    "about": {
+        "paragraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in, venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in, venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.",
+        "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in, venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.",
+        "contact": "Contáctanos",
+        "download": "Descargar Proyecto"
     }
 
 }
