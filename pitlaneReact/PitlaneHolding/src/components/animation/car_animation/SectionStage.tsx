@@ -1,10 +1,11 @@
 // SectionStage.tsx
+import { useTranslation } from "react-i18next"
 import SectionBase from "../../SectionBase"
 
 interface SectionStageProps {
   visible: boolean
   animation?: "pop" | "fade" | "none"
-  animation_duration? : number
+  animation_duration?: number
 }
 
 export default function SectionStage({
@@ -12,6 +13,9 @@ export default function SectionStage({
   animation = "none",
   animation_duration = 0.45
 }: SectionStageProps) {
+
+  const { t } = useTranslation()
+
   return (
     <div
       className={`
@@ -27,8 +31,8 @@ export default function SectionStage({
       }}
     >
       <SectionBase
-        title="Descarga el Plan de Proyecto Completo"
-        buttonText="Descargar Proyecto"
+        title={t("download.title")}
+        buttonText={t("download.button")}
         buttonLink="/api/files/PitlaneProject.pdf"
       />
     </div>

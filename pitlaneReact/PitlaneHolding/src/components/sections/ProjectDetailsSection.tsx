@@ -1,7 +1,10 @@
-import { useEffect, useState, useRef } from 'react'
-import backgroundImage from '../../assets/img/background4.png' // You can reuse any image
+import { useEffect, useState, useRef } from "react"
+import { useTranslation } from "react-i18next"
+import backgroundImage from "../../assets/img/background4.png"
 
 function ProjectDetailsSection(): React.JSX.Element {
+  const { t } = useTranslation()
+
   const [visible, setVisible] = useState(false)
   const [buttonsVisible, setButtonsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement | null>(null)
@@ -13,7 +16,6 @@ function ProjectDetailsSection(): React.JSX.Element {
       },
       { threshold: 0.2 }
     )
-
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
@@ -24,12 +26,13 @@ function ProjectDetailsSection(): React.JSX.Element {
     return () => clearTimeout(timer)
   }, [visible])
 
+  const visionList: string[] = t("projectDetails.visionList", { returnObjects: true }) as string[]
+
   return (
     <section
       ref={sectionRef}
       id="project-details"
-      className="relative overflow-hidden font-orbitron flex items-center justify-center px-6"
-      style={{ minHeight: 'calc(100vh - 7rem)' }}
+      className="relative overflow-hidden font-orbitron flex items-center justify-center px-6 py-20"
     >
       {/* Background */}
       <div
@@ -43,30 +46,81 @@ function ProjectDetailsSection(): React.JSX.Element {
       {/* Content */}
       <div
         className={`
-          max-w-5xl mx-auto text-center text-[var(--color-text-muted)] transition-all duration-700
-          ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
+          max-w-5xl mx-auto text-center text-[var(--color-text-muted)]
+          transition-all duration-700 
+          ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         `}
       >
-
-        {/* Main explanation block */}
-        <p className="text-md md:text-lg text-[var(--color-text-muted)] px-4 mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id tempus tortor. 
-          Fusce aliquet dictum eros id malesuada. Mauris at consequat ipsum. Donec consequat 
-          risus ac est viverra convallis. Proin iaculis sed lorem in luctus. Praesent vitae 
-          sem sed libero scelerisque laoreet sit amet a mauris.
-          <br /><br />
-          Donec blandit dignissim lacus, sed dapibus libero fringilla in. Sed at tempor sem. 
-          Mauris auctor euismod sapien, feugiat gravida lectus porta sed. Nulla vitae leo 
-          fringilla, semper mauris id, suscipit elit. Integer id dui pellentesque, dictum 
-          arcu vitae, ullamcorper leo.
+        {/* MAIN INTRO BLOCK */}
+        <p className="text-md md:text-lg px-4 mb-8 leading-relaxed">
+          {t("projectDetails.intro1")}
         </p>
 
-        {/* Secondary explanation block */}
-        <p className="text-sm md:text-md text-[var(--color-text-muted)] px-4 mb-10">
-          Suspendisse potenti. Nunc ultricies mauris id augue condimentum, ac vehicula ex rutrum. 
-          Vestibulum molestie ornare pellentesque. Integer convallis aliquam velit, id congue neque 
-          dignissim ac. Fusce nec justo vitae lacus tempus auctor a id nisi.
+        <p className="text-sm md:text-md px-4 mb-12 leading-relaxed">
+          {t("projectDetails.intro2")}
         </p>
+
+        {/* SECTION DIVIDER */}
+        <div className="w-full h-px bg-white/20 my-12" />
+
+        {/* FEATURE BLOCK */}
+        <div
+          className={`
+            transition-all duration-700 delay-200
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+          `}
+        >
+          <h2 className="text-xl md:text-2xl text-cyan-300 mb-6 font-semibold">
+            {t("projectDetails.featuresTitle")}
+          </h2>
+
+          <p className="text-sm md:text-md px-4 mb-10 leading-relaxed">
+            {t("projectDetails.featuresDesc")}
+          </p>
+        </div>
+
+        {/* SECTION DIVIDER */}
+        <div className="w-full h-px bg-white/20 my-12" />
+
+        {/* ARCHITECTURE BLOCK */}
+        <div
+          className={`
+            transition-all duration-700 delay-300
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+          `}
+        >
+          <h2 className="text-xl md:text-2xl text-cyan-300 mb-6 font-semibold">
+            {t("projectDetails.architectureTitle")}
+          </h2>
+
+          <p className="text-sm md:text-md px-4 mb-10 leading-relaxed">
+            {t("projectDetails.architectureDesc")}
+          </p>
+        </div>
+
+        {/* SECTION DIVIDER */}
+        <div className="w-full h-px bg-white/20 my-12" />
+
+        {/* LIST / BULLET BLOCK */}
+        <div
+          className={`
+            transition-all duration-700 delay-500
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+          `}
+        >
+          <h2 className="text-xl md:text-2xl text-cyan-300 mb-6 font-semibold">
+            {t("projectDetails.visionTitle")}
+          </h2>
+
+          <ul className="text-sm md:text-md px-8 text-left mx-auto max-w-3xl space-y-4 leading-relaxed">
+            {visionList.map((item, i) => (
+              <li key={i}>• {item}</li>
+            ))}
+          </ul>
+        </div>
+
+        {/* EXTRA SPACING */}
+        <div className="mt-20" />
       </div>
     </section>
   )
