@@ -63,5 +63,31 @@
         "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in, venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.",
         "contact": "Contact Us",
         "download": "Download Project"
+    },
+    "contact": {
+        "title": "Interested in investing?",
+        "subtitle": "Fill out the form below and we will get back to you as soon as possible.",
+        "button": {
+            "send": "Send",
+            "sending": "Sending...",
+            "sent": "✔ Sent!"
+        },
+        "fields": {
+            "name": "Full Name",
+            "email": "Email Address",
+            "number": "Phone Number",
+            "company": "Company / Investment Fund",
+            "message": "Message"
+        },
+        "modal": {
+            "successTitle": "Form sent!",
+            "successMessage": "Your message has been successfully sent.",
+            "errorTitle": "Error",
+            "errorMessage": "Unable to send.",
+            "validationTitle": "Fix the fields",
+            "validationMessage": "There are errors in the form.",
+            "unexpectedTitle": "Unexpected error",
+            "unexpectedMessage": "The form could not be sent."
+        }
     }
 }

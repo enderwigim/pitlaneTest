@@ -62,6 +62,37 @@
         "paragraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed aliquet felis. Fusce vestibulum felis blandit convallis maximus. In laoreet, augue vitae tempor tristique, quam justo euismod nibh, a mattis mi eros sed augue. Cras felis urna, posuere eu aliquet in, venenatis feugiat justo. In eget sodales mauris, quis tristique tellus. In et sapien et tellus faucibus consequat sit amet sit amet elit.",
         "contact": "Contáctanos",
         "download": "Descargar Proyecto"
+    },
+    "contact": {
+        "title": "¿Te interesa invertir?",
+        "subtitle": "Completa el formulario y un miembro del equipo te contactará lo antes posible.",
+        "button": {
+            "send": "Enviar",
+            "sending": "Enviando...",
+            "sent": "✔ Enviado!"
+        },
+
+        "fields": {
+            "name": "Nombre Completo",
+            "email": "Correo Electrónico",
+            "number": "Teléfono",
+            "company": "Empresa / Fondo de inversión",
+            "message": "Mensaje"
+        },
+
+        "modal": {
+            "successTitle": "¡Formulario enviado!",
+            "successMessage": "Tu mensaje ha sido enviado correctamente.",
+
+            "errorTitle": "Error",
+            "errorMessage": "No se pudo enviar.",
+
+            "validationTitle": "Corrige los campos",
+            "validationMessage": "Hay errores en el formulario.",
+
+            "unexpectedTitle": "Error inesperado",
+            "unexpectedMessage": "No se pudo enviar el formulario."
+        }
     }
 
 }
