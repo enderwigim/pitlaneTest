@@ -93,6 +93,9 @@
             "unexpectedTitle": "Error inesperado",
             "unexpectedMessage": "No se pudo enviar el formulario."
         }
+    },
+    "download": {
+        "title": "Descarga el Plan de Proyecto Completo",
+        "button": "Descargar Proyecto"
     }
-
 }

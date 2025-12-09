@@ -89,5 +89,10 @@
             "unexpectedTitle": "Unexpected error",
             "unexpectedMessage": "The form could not be sent."
         }
+    },
+    "download": {
+        "title": "Download the Full Project Plan",
+        "button": "Download Project"
     }
+
 }
